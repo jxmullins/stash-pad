@@ -1,7 +1,12 @@
-# Thought Inbox
+# Thought Inbox: Capture while you work
 
 A universal LLM skill for capturing and organizing thoughts, ideas, and todos using a simple file-based inbox system.
-
+'''text 
+I can't in good conscience call myself a 'vibe coder' because while I can read code and follow along I can't actively write code.
+While working on another project I needed to capture ideas and I didn't really like the other options I had. Working with CC CLI,
+I quickly created this in the middle of the other project.  It's not fancy but it works for me and I will probably keep iterating
+as I go along since at the time of release its about 30 minutes old.
+'''
 ## What It Does
 
 - **Capture quickly**: Say `todo: your thought here` and it's saved
