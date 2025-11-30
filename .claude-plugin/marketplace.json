@@ -6,7 +6,7 @@
   "plugins": [
     {
       "name": "stash-pad",
-      "source": ".",
+      "source": "./",
       "description": "Frictionless todo capture during coding sessions"
     }
   ]
