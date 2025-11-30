@@ -6,7 +6,7 @@ description: >
   :classify, :c, :show, :s, :now, :n, :restore, :r, :find, :f, :archive, or :ar.
   Manages a TODO.md file with inbox, categories, completion tracking, and restore.
   Works mid-session without disrupting workflow.
-allowed-tools: Read, Edit, Write, Glob
+allowed-tools: Read, Edit, Write
 ---
 
 # Stash Pad
@@ -35,6 +35,18 @@ Activate this skill when the user says any of the following:
 | `:archive` | `:ar` | Clear completed items |
 
 > **Tip:** To customize triggers, edit this file directly.
+
+### Activation Guidelines
+
+**Use this skill when:**
+- User explicitly wants to manage todos/tasks
+- Command appears at the start of user input
+- Context suggests todo management intent
+
+**Do NOT activate when:**
+- `:a`, `:d`, etc. appear mid-sentence or in code/paths
+- User is discussing something unrelated to task management
+- The colon-prefixed text is part of a filename, URL, or code snippet
 
 ---
 
@@ -179,7 +191,10 @@ When the user says `:archive` or `:ar`:
 
 ### 8. Creating TODO.md
 
-If `TODO.md` doesn't exist, create it with this template:
+If `TODO.md` doesn't exist:
+
+1. **Ask the user first**: "No TODO.md found. Create one?"
+2. **If user confirms**, create it with this template:
 
 ```markdown
 # Project Todo List
@@ -265,15 +280,14 @@ If the user includes priority markers, preserve them:
 
 ## Examples
 
-### Example 1: Single Item
+### Adding Items
 **User**: `:a add user authentication`
 **Assistant**: Added to inbox.
 
-### Example 2: Multiple Items
 **User**: `:add fix login bug; add dark mode; update README`
 **Assistant**: Added 3 items to inbox.
 
-### Example 3: Classification
+### Classification
 **User**: `:c`
 **Assistant**:
 Classified 3 items:
@@ -284,11 +298,7 @@ Classified 3 items:
 | Add dark mode | Features |
 | Update README | Documentation |
 
-### Example 4: Completing Items
-**User**: `:d auth`
-**Assistant**: ✓ Marked "add user authentication" complete
-
-### Example 5: Ambiguous Match
+### Ambiguous Match
 **User**: `:done bug`
 **Assistant**:
 Found 2 matches:
@@ -297,15 +307,7 @@ Found 2 matches:
 
 Which one(s)? (1, 2, or both)
 
-### Example 6: Add and Classify
-**User**: `:n add caching layer`
-**Assistant**: Added and classified: "add caching layer" → Improvements
-
-### Example 7: Show List
-**User**: `:s`
-**Assistant**: [Displays TODO.md contents]
-
-### Example 8: View Completed
+### Restore
 **User**: `:r`
 **Assistant**:
 Completed (newest first):
@@ -314,24 +316,8 @@ Completed (newest first):
 
 Restore with :r <number> or :r <text>
 
-### Example 9: Restore by Number
 **User**: `:r 1`
 **Assistant**: Restored "add user authentication" to inbox.
-
-### Example 10: Search
-**User**: `:f auth`
-**Assistant**:
-Found 2 matches for "auth":
-
-Features:
-- add user authentication
-
-Completed:
-- 2024.11.28 - fix auth token
-
-### Example 11: Archive
-**User**: `:ar`
-**Assistant**: Archived 3 completed items.
 
 ---
 
@@ -366,4 +352,6 @@ Adapt the triggers and file operations to your platform's capabilities
 
 ## Version
 
+2.0.1 - Anthropic guidelines compliance; activation guardrails; user consent for file creation
 2.0.0 - Added restore, find, archive commands; date-prefixed completed items
+1.0.0 - Initial release
