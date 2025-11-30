@@ -1,112 +1,130 @@
 # Stash Pad
 
-A CLI skill for quickly capturing todos and thoughts mid-session without breaking your flow.
+**Capture todos and ideas without breaking your flow.**
 
-> I can't in good conscience call myself a 'vibe coder' because while I can read code and follow along I can't actively write code. While working on another project I needed to capture ideas and I didn't really like the other options I had. Working with CC CLI, I quickly created this in the middle of the other project. It's not fancy but it works for me and I will probably keep iterating as I go along since at the time of release its about 30 minutes old.
+A Claude Code skill for quick task management during coding sessions. Type `:a fix the bug` and keep working—organize later.
 
-## What It Does
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-skill-blue)](https://claude.ai)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Version](https://img.shields.io/badge/version-2.0.1-orange)](SKILL.md)
 
-- **Capture quickly**: Type `:a your thought` and it's saved
-- **Batch input**: Use semicolons to add multiple items at once
-- **Classify later**: Type `:c` to organize everything into categories
-- **Works anywhere**: Compatible with Claude, Gemini, Codex, and other LLMs
+---
 
-## Quick Start
+## The Problem
 
-### 1. Install the Skill
+You're deep in a coding session. An idea hits. A bug surfaces. A todo pops into your head.
 
-**For Claude Code:**
-```bash
-# Copy to your project
-cp SKILL.md /your/project/.claude/skills/stash-pad.md
+**Old way:** Switch context, open a notes app, lose your train of thought.
 
-# Or reference in CLAUDE.md
-echo "See .claude/skills/stash-pad.md for todo management" >> /your/project/CLAUDE.md
-```
+**Stash Pad:** Type `:a your thought` and keep coding. Classify everything later with `:c`.
 
-**For Gemini / Codex / Others:**
-Include the contents of `SKILL.md` in your system prompt or instructions file.
+---
 
-### 2. Create a TODO.md
-
-Copy the template to your project:
-```bash
-cp templates/TODO.md /your/project/TODO.md
-```
-
-### 3. Start Capturing
+## Quick Demo
 
 ```
 You: :a add user authentication
-AI: Added to inbox.
+Claude: Added to inbox.
 
 You: :add websockets; caching; fix login bug
-AI: Added 3 items to inbox.
+Claude: Added 3 items to inbox.
 
 You: :c
-AI: Classified 4 items:
+Claude: Classified 4 items:
     Features (2) - auth, websockets
     Improvements (1) - caching
     Bug Fixes (1) - login bug
 
 You: :d auth
-AI: ✓ Marked "add user authentication" complete
+Claude: ✓ Marked "add user authentication" complete
 ```
-
-## Usage
-
-| Command | Shortcut | Action |
-|---------|----------|--------|
-| `:add` | `:a` | Add to inbox |
-| `:done` | `:d` | Mark complete |
-| `:classify` | `:c` | Organize inbox |
-| `:show` | `:s` | Display list |
-| `:now` | `:n` | Add + classify |
-| `:restore` | `:r` | Restore from completed |
-| `:find` | `:f` | Search all todos |
-| `:archive` | `:ar` | Clear completed items |
-
-Use semicolons to add multiple: `:add fix bug; dark mode; update docs`
-
-## Git
-
-Commit `TODO.md` to track your backlog history. Or add to `.gitignore` if you prefer local-only.
-
-## Categories
-
-Default categories (customizable per-project):
-
-- **Features** - New functionality
-- **Improvements** - Enhancements to existing code
-- **Bug Fixes** - Issues to fix
-- **Documentation** - Docs, README, guides
-- **Ideas** - Exploratory thoughts
-
-## Customization
-
-Edit your project's `TODO.md` to add custom categories:
-
-```markdown
-## Technical Debt
-<!-- Code that needs refactoring -->
-
-## Research
-<!-- Topics to investigate -->
-
-## Questions
-<!-- Things to clarify -->
-```
-
-The AI will detect and use your custom categories when classifying.
-
-## Contributing
-
-This skill is being actively developed. Ideas and contributions welcome!
-
-## License
-
-MIT - Use it, share it, modify it.
 
 ---
 
-Built with Claude Code.
+## Install
+
+Add to your project's `.claude/skills/` directory:
+
+```bash
+cp SKILL.md /your/project/.claude/skills/stash-pad.md
+```
+
+Or reference in your `CLAUDE.md`:
+
+```bash
+echo "See .claude/skills/stash-pad.md for todo management" >> CLAUDE.md
+```
+
+---
+
+## Commands
+
+| Command | Shortcut | What it does |
+|---------|----------|--------------|
+| `:add` | `:a` | Add to inbox |
+| `:done` | `:d` | Mark complete |
+| `:classify` | `:c` | Organize inbox into categories |
+| `:show` | `:s` | Display your list |
+| `:now` | `:n` | Add + classify in one step |
+| `:restore` | `:r` | Bring back completed items |
+| `:find` | `:f` | Search all todos |
+| `:archive` | `:ar` | Clear completed items |
+
+**Batch add:** Use semicolons — `:add fix bug; dark mode; update docs`
+
+---
+
+## Features
+
+- **Zero friction** — Two keystrokes to capture (`:a`)
+- **Batch input** — Add multiple items with semicolons
+- **Smart classification** — AI sorts into Features, Bugs, Improvements, etc.
+- **Restore mistakes** — Accidentally completed? Bring it back with `:r`
+- **Search everything** — Find items across all categories
+- **Project-local** — Each project gets its own `TODO.md`
+
+---
+
+## Categories
+
+Default categories (auto-detected, customizable):
+
+- **Features** — New functionality
+- **Improvements** — Enhancements to existing code
+- **Bug Fixes** — Issues to fix
+- **Documentation** — Docs, README, guides
+- **Ideas** — Exploratory thoughts
+
+Add your own by editing `TODO.md`:
+
+```markdown
+## Technical Debt
+## Research
+## Questions
+```
+
+---
+
+## Git
+
+Commit `TODO.md` to track backlog history, or add to `.gitignore` for local-only.
+
+---
+
+## Why I Built This
+
+> I can't in good conscience call myself a "vibe coder" because while I can read code and follow along I can't actively write code, so I don't think the 'coder' part is fitting. While working on another project I needed to capture ideas and I didn't really like the other options I had at the moment (Notes.app, TextEdit, etc...) but with my ADHD mind I knew I needed something fast and PRESENT. Working with Claude Code CLI, I quickly created ver. 1.0 in the middle of the other project. It's not fancy but it works for me and I hope someone else can use it too.
+
+---
+
+## Contributing
+
+Ideas and contributions welcome! This skill is actively developed.
+
+## License
+
+MIT — Use it, share it, modify it.
+
+---
+
+*Built with Claude Code.*
