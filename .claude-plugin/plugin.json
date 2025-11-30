@@ -1,0 +1,12 @@
+{
+  "name": "stash-pad",
+  "version": "3.0.0",
+  "description": "Frictionless todo capture during coding sessions",
+  "author": {
+    "name": "jxmullins"
+  },
+  "repository": "https://github.com/jxmullins/stash-pad",
+  "license": "MIT",
+  "keywords": ["todo", "productivity", "task-management", "adhd"],
+  "commands": "./commands"
+}

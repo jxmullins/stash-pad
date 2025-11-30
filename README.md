@@ -4,9 +4,9 @@
 
 A Claude Code skill for quick task management during coding sessions. Type `:a fix the bug` and keep working—organize later.
 
-[![Claude Code](https://img.shields.io/badge/Claude%20Code-skill-blue)](https://claude.ai)
+[![Claude Code](https://img.shields.io/badge/Claude%20Code-skill%20%7C%20plugin-blue)](https://claude.ai)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Version](https://img.shields.io/badge/version-2.0.1-orange)](SKILL.md)
+[![Version](https://img.shields.io/badge/version-3.0.0-orange)](SKILL.md)
 
 ---
 
@@ -43,34 +43,41 @@ Claude: ✓ Marked "add user authentication" complete
 
 ## Install
 
-Add to your project's `.claude/skills/` directory:
+### Option 1: As Plugin (Recommended)
+
+Full features with slash commands + colon shortcuts:
+
+```bash
+/plugin marketplace add https://github.com/jxmullins/stash-pad
+/plugin install stash-pad
+```
+
+### Option 2: As Skill (Lightweight)
+
+Colon shortcuts only — just copy one file:
 
 ```bash
 cp SKILL.md /your/project/.claude/skills/stash-pad.md
-```
-
-Or reference in your `CLAUDE.md`:
-
-```bash
-echo "See .claude/skills/stash-pad.md for todo management" >> CLAUDE.md
 ```
 
 ---
 
 ## Commands
 
-| Command | Shortcut | What it does |
-|---------|----------|--------------|
-| `:add` | `:a` | Add to inbox |
-| `:done` | `:d` | Mark complete |
-| `:classify` | `:c` | Organize inbox into categories |
-| `:show` | `:s` | Display your list |
-| `:now` | `:n` | Add + classify in one step |
-| `:restore` | `:r` | Bring back completed items |
-| `:find` | `:f` | Search all todos |
-| `:archive` | `:ar` | Clear completed items |
+| Action | Slash Command | Shortcut |
+|--------|---------------|----------|
+| Add to inbox | `/stash:add` | `:a` |
+| Mark complete | `/stash:done` | `:d` |
+| Organize inbox | `/stash:classify` | `:c` |
+| Display list | `/stash:show` | `:s` |
+| Add + classify | `/stash:now` | `:n` |
+| Restore item | `/stash:restore` | `:r` |
+| Search todos | `/stash:find` | `:f` |
+| Clear completed | `/stash:archive` | `:ar` |
 
-**Batch add:** Use semicolons — `:add fix bug; dark mode; update docs`
+*Slash commands available with plugin install. Shortcuts work with both.*
+
+**Batch add:** Use semicolons — `:a fix bug; dark mode; update docs`
 
 ---
 
@@ -116,7 +123,7 @@ Commit `TODO.md` to track backlog history, or add to `.gitignore` for local-only
 - [x] Core todo management (`:add`, `:done`, `:classify`)
 - [x] Search and restore functionality
 - [x] Batch entry support
-- [ ] **Plugin version** — Slash commands (`/stash:add`), tab completion, marketplace distribution (in development)
+- [x] **Plugin version** — Slash commands (`/stash:add`), tab completion, marketplace distribution
 - [ ] MCP integration — Sync with external tools (planned)
 
 ---

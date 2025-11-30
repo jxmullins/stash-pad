@@ -1,0 +1,13 @@
+{
+  "name": "stash-pad-marketplace",
+  "owner": {
+    "name": "jxmullins"
+  },
+  "plugins": [
+    {
+      "name": "stash-pad",
+      "source": ".",
+      "description": "Frictionless todo capture during coding sessions"
+    }
+  ]
+}
