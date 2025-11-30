@@ -117,6 +117,12 @@ Commit `TODO.md` to track backlog history, or add to `.gitignore` for local-only
 
 ---
 
+## Support
+
+If this skill saves you time, consider buying me a coffee:
+
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-support-yellow?logo=buy-me-a-coffee)](https://buymeacoffee.com/jxmullins)
+
 ## Contributing
 
 Ideas and contributions welcome! This skill is actively developed.
