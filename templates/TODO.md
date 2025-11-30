@@ -20,3 +20,8 @@
 ## Inbox
 <!-- Drop any thought here - assistant will classify it -->
 
+---
+
+## Completed
+<!-- Done items moved here automatically -->
+

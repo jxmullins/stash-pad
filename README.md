@@ -1,17 +1,14 @@
-# Thought Inbox: Capture while you work
+# Stash Pad
 
-A universal LLM skill for capturing and organizing thoughts, ideas, and todos using a simple file-based inbox system.
-'''text 
-I can't in good conscience call myself a 'vibe coder' because while I can read code and follow along I can't actively write code.
-While working on another project I needed to capture ideas and I didn't really like the other options I had. Working with CC CLI,
-I quickly created this in the middle of the other project.  It's not fancy but it works for me and I will probably keep iterating
-as I go along since at the time of release its about 30 minutes old.
-'''
+A CLI skill for quickly capturing todos and thoughts mid-session without breaking your flow.
+
+> I can't in good conscience call myself a 'vibe coder' because while I can read code and follow along I can't actively write code. While working on another project I needed to capture ideas and I didn't really like the other options I had. Working with CC CLI, I quickly created this in the middle of the other project. It's not fancy but it works for me and I will probably keep iterating as I go along since at the time of release its about 30 minutes old.
+
 ## What It Does
 
-- **Capture quickly**: Say `todo: your thought here` and it's saved
+- **Capture quickly**: Type `:a your thought` and it's saved
 - **Batch input**: Use semicolons to add multiple items at once
-- **Classify later**: Say `classify` to organize everything into categories
+- **Classify later**: Type `:c` to organize everything into categories
 - **Works anywhere**: Compatible with Claude, Gemini, Codex, and other LLMs
 
 ## Quick Start
@@ -21,10 +18,10 @@ as I go along since at the time of release its about 30 minutes old.
 **For Claude Code:**
 ```bash
 # Copy to your project
-cp SKILL.md /your/project/.claude/skills/thought-inbox.md
+cp SKILL.md /your/project/.claude/skills/stash-pad.md
 
 # Or reference in CLAUDE.md
-echo "See .claude/skills/thought-inbox.md for todo management" >> /your/project/CLAUDE.md
+echo "See .claude/skills/stash-pad.md for todo management" >> /your/project/CLAUDE.md
 ```
 
 **For Gemini / Codex / Others:**
@@ -40,28 +37,40 @@ cp templates/TODO.md /your/project/TODO.md
 ### 3. Start Capturing
 
 ```
-You: todo: add user authentication
-AI: Added to inbox. (That's a Feature)
+You: :a add user authentication
+AI: Added to inbox.
 
-You: idea: what if we used websockets; maybe add caching; fix that login bug
+You: :add websockets; caching; fix login bug
 AI: Added 3 items to inbox.
 
-You: classify
+You: :c
 AI: Classified 4 items:
     Features (2) - auth, websockets
     Improvements (1) - caching
     Bug Fixes (1) - login bug
+
+You: :d auth
+AI: ✓ Marked "add user authentication" complete
 ```
 
 ## Usage
 
-| Command | What It Does |
-|---------|--------------|
-| `todo: <text>` | Add to inbox |
-| `idea: <text>` | Add to inbox |
-| `todo: a; b; c` | Add multiple items |
-| `classify` | Organize inbox into categories |
-| `show todos` | Display current list |
+| Command | Shortcut | Action |
+|---------|----------|--------|
+| `:add` | `:a` | Add to inbox |
+| `:done` | `:d` | Mark complete |
+| `:classify` | `:c` | Organize inbox |
+| `:show` | `:s` | Display list |
+| `:now` | `:n` | Add + classify |
+| `:restore` | `:r` | Restore from completed |
+| `:find` | `:f` | Search all todos |
+| `:archive` | `:ar` | Clear completed items |
+
+Use semicolons to add multiple: `:add fix bug; dark mode; update docs`
+
+## Git
+
+Commit `TODO.md` to track your backlog history. Or add to `.gitignore` if you prefer local-only.
 
 ## Categories
 
