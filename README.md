@@ -111,6 +111,16 @@ Commit `TODO.md` to track backlog history, or add to `.gitignore` for local-only
 
 ---
 
+## Roadmap
+
+- [x] Core todo management (`:add`, `:done`, `:classify`)
+- [x] Search and restore functionality
+- [x] Batch entry support
+- [ ] **Plugin version** — Slash commands (`/stash:add`), tab completion, marketplace distribution (in development)
+- [ ] MCP integration — Sync with external tools (planned)
+
+---
+
 ## Why I Built This
 
 > I can't in good conscience call myself a "vibe coder" because while I can read code and follow along I can't actively write code, so I don't think the 'coder' part is fitting. While working on another project I needed to capture ideas and I didn't really like the other options I had at the moment (Notes.app, TextEdit, etc...) but with my ADHD mind I knew I needed something fast and PRESENT. Working with Claude Code CLI, I quickly created ver. 1.0 in the middle of the other project. It's not fancy but it works for me and I hope someone else can use it too.
